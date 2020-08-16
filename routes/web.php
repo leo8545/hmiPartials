@@ -2,22 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+/* Public Routes */
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/menus', "\App\Http\Controllers\MenusController@index")->name('menus');
+Route::get('/news', 'NewsController@index')->name('news');
+Route::get('/specials', 'SpecialsController@index')->name('specials');
+Route::get('/events', 'EventsController@index')->name('events');
+Route::get('/menus', "MenusController@index")->name('menus');
 
+/* Login Routes */
 Auth::routes();
 Route::get('/logout', 'Auth\LogoutController@logout') ;
 
-Route::group(['middleware' => ['revalidate', 'auth']], function () {
+/* Admin Routes */
+Route::group(['prefix' => 'admin', 'middleware' => ['revalidate', 'auth']], function () {
+    // admin and crud routes go here
+    Route::any('/', 'Admin\DashboardController@index')->name('dashboard');
 
 }) ;

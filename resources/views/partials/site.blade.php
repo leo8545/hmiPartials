@@ -73,10 +73,10 @@
 
         <div class="links">
             <a href="{{ route('home') }}">Home</a>
-            <a href="https://laravel.com/docs">Events</a>
-            <a href="https://laracasts.com">Specials</a>
+            <a href="{{ route('events') }}">Events</a>
+            <a href="{{ route('specials') }}">Specials</a>
             <a href="{{ route('menus') }}">Menus</a>
-            <a href="https://blog.laravel.com">News</a>
+            <a href="{{ route('news') }}">News</a>
         </div>
 
     </div>
