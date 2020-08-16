@@ -47,5 +47,8 @@ class DatabaseSeeder extends Seeder
         $dmenu->name = "Drinks Menu";
         $dmenu->published = 1;
         $dmenu->save();
+
+
+
     }
 }
