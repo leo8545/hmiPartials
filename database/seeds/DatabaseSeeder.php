@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,7 +17,7 @@ class DatabaseSeeder extends Seeder
         $user->name = "Ian Hannaford";
         $user->email = "ian@truecommerce.co.uk";
         $user->email_verified_at = \Carbon\Carbon::now();
-        $user->password = "qwerty123";
+        $user->password = Hash::make("qwerty123");
         $user->role = 'admin' ;
         $user->save();
 
