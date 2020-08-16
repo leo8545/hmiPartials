@@ -11,6 +11,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // add the admin user
+        $user = new \App\User();
+        $user->name = "Ian Hannaford";
+        $user->email = "ian@truecommerce.co.uk";
+        $user->email_verified_at = \Carbon\Carbon::now();
+        $user->password = "qwerty123";
+        $user->role = 'admin' ;
+        $user->save();
+
         $menu = new \App\Models\Menu();
         $menu->name = "Food Menu";
         $menu->description = "Join us for our tasty home cooked food every day from 10am";
