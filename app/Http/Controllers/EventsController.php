@@ -6,12 +6,12 @@ use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class EventsController extends PostsController {
+class EventsController extends PostController {
 
-    public function index( Request $request ) {
+    // public function index( Request $request ) {
 
-        return view('events');
+    //     return view('events');
 
-    }
+    // }
 
 }
