@@ -2,6 +2,6 @@
 
 @section('content')
 
-    Specials
+    Specials - {{count($posts)}}
 
 @endsection

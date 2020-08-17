@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Post;
+use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -54,7 +55,7 @@ class PostController extends Controller
         ]);
 
         // Images
-        $images = [ 
+        $images = [
             'intro_image', 'main_image', 'icon'
         ];
 
@@ -66,7 +67,7 @@ class PostController extends Controller
                     $validated = $request->validate([
                         $image => 'mimes:jpeg,png|max:1014',
                     ]);
-    
+
                     $extension = $request->{$image}->extension();
                     $fileName = Arr::get($post_data , 'title')."-$image.".$extension;
                     $request->{$image}->storeAs('/public', $fileName);
@@ -132,7 +133,7 @@ class PostController extends Controller
         $post->publish_start = Arr::get($request , 'publish_start');
         $post->publish_end = Arr::get($request , 'publish_end');
         // Images
-        $images = [ 
+        $images = [
             'intro_image', 'main_image', 'icon'
         ];
         foreach($images as $image) {
@@ -141,7 +142,7 @@ class PostController extends Controller
                     $validated = $request->validate([
                         $image => 'mimes:jpeg,png|max:1014',
                     ]);
-    
+
                     $extension = $request->{$image}->extension();
                     $fileName = Arr::get($request , 'title')."-$image.".$extension;
                     $request->{$image}->storeAs('/public', $fileName);

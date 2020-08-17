@@ -8,7 +8,7 @@
 <div class="table-responsive">
     <!--Table-->
     <table class="table table-striped">
-  
+
       <!--Table head-->
       <thead>
         <tr>
@@ -26,10 +26,10 @@
         </tr>
       </thead>
       <!--Table head-->
-  
+
       <!--Table body-->
       <tbody>
-            @foreach (App\Post::all() as $post)
+            @foreach (\App\Models\Post::all() as $post)
             <tr>
                 <th scope="row">{{$post->id}}</th>
                 <td>{{$post->type}}</td>
