@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class NewsController extends PostController {
 
-    // public function index( Request $request ) {
+     public function index( Request $request ) {
 
-    //     return view('news');
+         return view('news');
 
-    // }
+     }
 
 }

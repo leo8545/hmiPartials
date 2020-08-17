@@ -1,8 +1,4 @@
-@extends('admin.partials.site')
 
-@section('title', 'Login')
-
-@section('content')
 <div class="d-flex align-items-center justify-content-center bg-br-primary ht-100v">
 
     <div class="login-wrapper wd-500 wd-xs-550 pd-25 pd-xs-40 bg-white rounded shadow-base">
@@ -40,4 +36,4 @@
 
     </div><!-- login-wrapper -->
 </div><!-- d-flex -->
-@endsection
+
