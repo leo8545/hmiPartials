@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+
+<a href="{{route('admin.specials.create')}}"  class="btn btn-primary">Add New</a>
+
 <div class="table-responsive">
     <!--Table-->
     <table class="table table-striped">
@@ -22,14 +25,14 @@
           <th>Publish Start</th>
           <th>Publish End</th>
           <th>Last Updated</th>
-          <th>Action</th>
+          <th colspan='2'>Action</th>
         </tr>
       </thead>
       <!--Table head-->
 
       <!--Table body-->
       <tbody>
-            @foreach (\App\Models\Post::all() as $post)
+            @foreach ($posts as $post)
             <tr>
                 <th scope="row">{{$post->id}}</th>
                 <td>{{$post->type}}</td>
@@ -41,21 +44,8 @@
                 <td>{{$post->publish_start}}</td>
                 <td>{{$post->publish_end}}</td>
                 <td>{{$post->updated_at}}</td>
-                <td>
-                  <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Action
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="{{ route('post.edit', ['post' => $post]) }}">Update</a>
-                        <form method="POST" action="{{ route('post.destroy', ['post'=> $post]) }}">
-                            @method('DELETE')
-                            @csrf
-                            <button class="dropdown-item" type="submit">Delete</button>
-                        </form>
-                      </div>
-                    </div>
-                </td>
+                <td>Edit</td>
+                <td>Delete</td>
               </tr>
             @endforeach
       </tbody>

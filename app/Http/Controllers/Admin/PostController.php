@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Route;
 
 class PostController extends Controller
 {
@@ -20,7 +21,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('admin.post.index');
+        $posts = Post::where('type', $this->getPostType())->get();
+        return view('admin.post.index', compact('posts'));
+    }
+
+    private function getPostType() {
+        return explode('.', Route::currentRouteName())[1];
     }
 
     /**
@@ -30,7 +36,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.post.create');
+        $postType = $this->getPostType();
+        return view('admin.post.create', compact('postType'));
     }
 
     /**
@@ -89,7 +96,7 @@ class PostController extends Controller
         $post->publish_end = Arr::get($post_data , 'publish_end');
 
         $post->save();
-        return redirect()->back();
+        return redirect()->back()->with('success', 'New post added successfully!');
     }
 
     /**

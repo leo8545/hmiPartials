@@ -18,8 +18,11 @@ Route::get('/logout', 'Auth\LogoutController@logout') ;
 Route::group(['prefix' => 'admin', 'middleware' => ['revalidate', 'auth']], function () {
     // admin and crud routes go here
     Route::any('/', 'Admin\DashboardController@index')->name('admin');
+
+    // Specials
     Route::get('/specials', 'Admin\PostController@index')->name('admin.specials');
-    Route::post('/specials', 'Admin\PostController@store');
+    Route::get('/specials/create', 'Admin\PostController@create')->name('admin.specials.create');
+    Route::post('/specials', 'Admin\PostController@store')->name('specials.store');
 
     //Route::resource('post', 'PostController');
 }) ;
