@@ -112,6 +112,8 @@
                             </a>
 
                             <a class="nav-link" href="{{route('admin.specials')}}">Specials</a>
+                            <a class="nav-link" href="{{route('admin.news')}}">News</a>
+                            <a class="nav-link" href="{{route('admin.events')}}">Events</a>
 
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMenus" aria-expanded="false" aria-controls="collapseMenus">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
@@ -120,12 +122,10 @@
                             </a>
                             <div class="collapse" id="collapseMenus" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        All Menus
-                                    </a>
-                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Add Menu
-                                    </a>
+                                    <a class="nav-link" href="{{route('admin.menu')}}">All Menus</a>
+                                    <a class="nav-link" href="{{route('admin.menuSection')}}">All Sections</a>
+                                    <a class="nav-link" href="{{route('admin.menuItem')}}">All Items</a>
+                                    <a class="nav-link" href="{{route('admin.menu.create')}}">Add Menus</a>
                                 </nav>
                             </div>
                         </div>

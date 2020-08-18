@@ -100,17 +100,6 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Post  $post
@@ -118,7 +107,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.post.edit', compact('post'));
+        return view('admin.post.create', compact('post'));
     }
 
     /**
@@ -130,6 +119,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $post->user_id = Auth::user()->id;
         $post->type = Arr::get($request , 'type');
         $post->title = Arr::get($request , 'title');
         $post->intro = Arr::get($request , 'intro');
@@ -158,8 +148,8 @@ class PostController extends Controller
                 }
             }
         }
-        $post->save();
-        return view('admin.post.index');
+        $post->update();
+        return redirect()->back()->with('success', 'Post updated successfully!');
     }
 
     /**

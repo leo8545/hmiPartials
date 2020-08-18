@@ -44,8 +44,12 @@
                 <td>{{$post->publish_start}}</td>
                 <td>{{$post->publish_end}}</td>
                 <td>{{$post->updated_at}}</td>
-                <td>Edit</td>
-                <td>Delete</td>
+                <td>
+                  <a href="{{route("admin.{$post->type}.edit", $post)}}">Edit</a>
+                </td>
+                <td>
+                  <a href="{{route("admin.{$post->type}.destroy", $post)}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                </td>
               </tr>
             @endforeach
       </tbody>

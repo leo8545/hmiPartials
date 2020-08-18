@@ -20,8 +20,5 @@
         $("body").toggleClass("sb-sidenav-toggled");
     });
 
-    $("#starts").datetimepicker();
-    $("#ends").datetimepicker();
-    $("#publishStart").datetimepicker();
-    $("#publishEnd").datetimepicker();
+    $(".date-picker").datetimepicker();
 })(jQuery);
