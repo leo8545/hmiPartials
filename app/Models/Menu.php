@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
+    protected $fillable = [
+        'name'
+    ];
     public function menu_sections() {
         return $this->hasMany(MenuSection::class)->with('menu_items');
     }
