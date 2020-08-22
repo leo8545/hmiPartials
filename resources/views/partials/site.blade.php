@@ -9,6 +9,9 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
+
     <!-- Styles -->
     <style>
         html, body {
@@ -64,7 +67,9 @@
     </style>
 </head>
 <body>
+    @include('partials.nav')
 <div class="position-ref full-height">
+
 
     <div class="content">
         <div class="title m-b-md">
@@ -87,6 +92,11 @@
 
     </div>
 
+    <!-- Scripts -->
+    <script src="{{asset('js/jquery-3.5.1.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="{{asset('js/public-script.js')}}"></script>
 </div>
 </body>
 </html>

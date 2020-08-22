@@ -2,6 +2,6 @@
 
 @section('content')
 
-    Homepage
+{{--    @dd($events);--}}
 
 @endsection
